@@ -1,9 +1,14 @@
-# POKEDEX
+﻿# POKEDEX
+
+
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+
+- Fábio Jordão
+
+- Rafaela Quinzel
+
+- Renata Caetano
 
 Link do Surge: www.link.com.br
 
