@@ -1,9 +1,9 @@
 import React from "react"
 import styled from 'styled-components'
 import axios from 'axios'
-import { DivButton, GridPokemon, H1Home, Header, PokemonBox, HeaderDetails, DetailButtons, DetailsContainer, DetailsPictures, StyledPic } from "../styled/styles"
+import { DivButton, GridPokemon, H1Home, Header, PokemonBox, HeaderDetails, DetailButtons, DetailsContainer, DetailsPictures, StyledPic, DetailsPowers, DetailsAttacks } from "../styled/styles"
 import { useHistory } from "react-router-dom"
-import {goToPokedex, goBack} from '../router/coordinations'
+import { goToPokedex, goBack } from '../router/coordinations'
 import pikachu from '../components/img/pikachu.png'
 
 function Details() {
@@ -26,14 +26,21 @@ function Details() {
             </HeaderDetails>
 
             <DetailsContainer>
-            <div>
+
                 <DetailsPictures>
-                <StyledPic src={pikachu} />
-                <img src={pikachu} />
+                    <StyledPic src={pikachu} />
+                    <img src={pikachu} />
                 </DetailsPictures>
-                <div>Poderes</div>
-                <div>Principais Ataques</div>
-            </div>
+
+                <DetailsPowers>
+                    <p>Poderes</p>
+                    
+                    </DetailsPowers>
+
+                <DetailsAttacks>
+                    <p>Principais Ataques</p>
+                </DetailsAttacks>
+
             </DetailsContainer>
         </div>
     )
