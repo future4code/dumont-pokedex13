@@ -1,42 +1,44 @@
-import React from "react"
-import styled from 'styled-components'
-import axios from 'axios'
-import { DivButton, GridPokemon, H1Home, Header, PokemonBox, HeaderDetails, DetailButtons, DetailsContainer, DetailsPictures, StyledPic } from "../styled/styles"
+import React, { useState, useEffect } from "react"
+import { DivButton, GridPokemon, H1Home, Header, PokemonBox, ButtonPokedex, ButtonDetails, HeaderDetails } from "../styled/styles"
 import { useHistory } from "react-router-dom"
-import {goToPokedex, goBack} from '../router/coordinations'
-import pikachu from '../components/img/pikachu.png'
+import { goToPokedex, goToDetails } from '../router/coordinations'
+import { useRequestData } from "../hooks/useRequestData"
 
-function Details() {
+import PokemonDetails from "./PokemonDetails" //Nova página onde renderiza a imagem
 
-    const history = useHistory()
+
+function Details() { 
+  
+  const history = useHistory()
+
+  const getPokeList = useRequestData('https://pokeapi.co/api/v2/pokemon/?limit=20', [])
+  
 
     return (
-
-
         <div>
-
             <HeaderDetails>
-
-                <DetailButtons onClick={() => goToPokedex(history)}>Ir para Pokedéx</DetailButtons>
-
-
-                <h1>Lista de Pokémons</h1>
-
-                <DetailButtons onClick={() => goBack(history)}>Voltar para Home</DetailButtons>
+                <DivButton>
+                <button onClick={() => goToPokedex(history)}>Ir para Pokedéx</button>
+                </DivButton>
+                <H1Home>Lista de Pokémons</H1Home>
+                <DivButton>
+                <button onClick={() => goToPokedex(history)}>Ir para Home</button>
+                </DivButton>
             </HeaderDetails>
 
-            <DetailsContainer>
-            <div>
-                <DetailsPictures>
-                <StyledPic src={pikachu} />
-                <img src={pikachu} />
-                </DetailsPictures>
-                <div>Poderes</div>
-                <div>Principais Ataques</div>
-            </div>
-            </DetailsContainer>
+            <GridPokemon>
+                   {getPokeList && getPokeList.map(pokemon => {
+                      return (
+                          <PokemonBox  key={pokemon.name}>
+                            {/* Renderizando a imagem no card */}
+                            <PokemonDetails pokemon={pokemon.name}/>
+                            <p>{pokemon.name}</p>
+                          </PokemonBox> 
+                      )
+                  })}
+            </GridPokemon>
         </div>
-    )
+     )
 }
 
 export default Details
