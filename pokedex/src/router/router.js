@@ -1,7 +1,7 @@
 import React from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import Details from "../components/Details"
-import Home from "../components/Home"
+import Details from "../components/details"
+import Home from "../components/home"
 import Pokedex from "../components/Pokedex"
 
 function Router () {

@@ -100,7 +100,7 @@ function Details () {
                 <DivButton>
                 <button onClick={() => goToPokedex(history)}>Ir para Home</button>
                 </DivButton>
-            </HeaderDetails>
+            
 
         </div>
      )
