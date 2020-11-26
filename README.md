@@ -1,6 +1,6 @@
 # POKEDEX
 
-Nome dos integrantes: 
+**Nome dos integrantes: **
 
 Fabio Jordão;
 
@@ -8,16 +8,16 @@ Rafaela Quinzel;
 
 Renata Caetano;
 
-Link do Surge: 
+**Link do Surge: **
 
-O que funciona:
+**O que funciona:**
 
 Mudança entre páginas;
 
 Aparecer os 20 pokemons;
 
 
-O que não funciona: 
+**O que não funciona: **
 
 Add Pokemon;
 
