@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router-dom"
 import {goToPokedex, goBack} from '../router/coordinations'
 import pikachu from '../components/img/pikachu.png'
 
-function Details() {
+function Details () {
 
     const history = useHistory()
     const pathParams= useParams();
@@ -59,13 +59,10 @@ function Details() {
         } else{
             return false
         }
-    })
+    })  
 
     return (
-
-
         <div>
-
             <HeaderDetails>
 
                 <DetailButtons onClick={() => goToPokedex(history)}>Ir para Pokedéx</DetailButtons>
@@ -96,8 +93,17 @@ function Details() {
                 })}
             </div>
             </DetailsContainer>
+                <DivButton>
+                <button onClick={() => goToPokedex(history)}>Ir para Pokedéx</button>
+                </DivButton>
+                <H1Home>Lista de Pokémons</H1Home>
+                <DivButton>
+                <button onClick={() => goToPokedex(history)}>Ir para Home</button>
+                </DivButton>
+            </HeaderDetails>
+
         </div>
-    )
+     )
 }
 
 export default Details

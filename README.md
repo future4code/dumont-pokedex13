@@ -1,16 +1,25 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+**Nome dos integrantes: **
 
-Link do Surge: www.link.com.br
+Fabio Jordão;
 
-O que funciona:
-- Item 1
-- Item 2
+Rafaela Quinzel;
 
-O que não funciona: 
-- Item 3
-- Item 4
+Renata Caetano;
+
+**Link do Surge: **
+
+**O que funciona:**
+
+Mudança entre páginas;
+
+Aparecer os 20 pokemons;
+
+
+**O que não funciona: **
+
+Add Pokemon;
+
+Detalhes Pokemon;
+

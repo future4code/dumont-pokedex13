@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom"
 
 export const goToPokedex = (history) => {
-    history.push("/pokedex")
+    history.push("/Pokedex")
 }
 
 export const goBack = (history) => {
@@ -9,5 +9,5 @@ export const goBack = (history) => {
 }
 
 export const goToDetails = (history) =>{
-    history.push("/pokemon-details")
+    history.push("/Details")
 }

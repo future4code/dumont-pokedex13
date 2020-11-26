@@ -25,12 +25,15 @@ const App = () => {
 
   
   return (
+    
     <GlobalStateContext.Provider value={data}>
-
+  
       <Router />
 
     </GlobalStateContext.Provider>
   );
-}
+};
+
 
 export default App;
+
