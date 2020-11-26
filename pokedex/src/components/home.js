@@ -1,22 +1,27 @@
-import React, { useState, useEffect, useContext } from "react"
-import { DivButton, GridPokemon, H1Home, Header, PokemonBox, ButtonPokedex, ButtonDetails } from "../styled/styles"
+
+import React, { useContext, useEffect, useState } from "react"
+import styled from 'styled-components'
+import axios from 'axios'
+import { DivButton, GridPokemon, H1Home, Header, PokemonBox } from "../styled/styles"
 import { useHistory } from "react-router-dom"
 import { goToPokedex, goToDetails } from '../router/coordinations'
 import { useRequestData } from "../hooks/useRequestData"
+import PokeCard from "./pokemoncard"
+import GlobalStateContext from "../globalstate/globalstatecontext"
 
 import PokemonImage from "./PokemonImage" //Nova página onde renderiza a imagem
 import GlobalStateContext from "../Global/GlobalStateContext"
 
+    const history = useHistory()
+
+    const {pokeImage, setPokeImage, getPokeImage, pokemon, setPokemon, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails} = useContext(GlobalStateContext);
+
 
 function Home() { 
-  
-    const {states,requests}=useContext(GlobalStateContext)
-  
-    const history = useHistory()
 
   
     useEffect(() => {
-       requests.getPokemons()
+       getPokemons()
     }, [])
   
     return (
@@ -26,14 +31,17 @@ function Home() {
                     <button onClick={() => goToPokedex(history)}>Ir para Pokedéx</button>
                 </DivButton>
                 <H1Home>Lista de Pokémons</H1Home>
+            </Header>              
+            
+                        <GridPokemon>
+                        {pokemon.map((poke)=>{
+                            return <PokeCard name={poke.name} url={poke.url} />
+                        })}
+                        </GridPokemon>
+
             </Header>
 
-            <GridPokemon>
-                   {states.pokemonList && states.pokemonList.map((item)=>{
-                   return <PokemonImage url={item.url}/>
-                   
-                })}
-        
+
                         
                         
                   
