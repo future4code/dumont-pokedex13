@@ -13,11 +13,11 @@ function Router () {
 
             </Route>
 
-            <Route exact path="/pokedex">
+            <Route exact path="/Pokedex">
                 <Pokedex />
             </Route>
 
-            <Route exact path="/pokemon-details">
+            <Route exact path="/Details">
                 <Details />
             </Route>
 
