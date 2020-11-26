@@ -7,7 +7,9 @@ const App = () => {
 
   const [pokemon, setPokemon] = useState([])
   const [pokedex, setPokedex] = useState([])
+  const [pokeList, setPokeList] = useState([])
   const [pokeDetails, setPokeDetails] = useState([])
+  const [buttonPokedex, setButtonPokedex] = useState("ADICIONAR À POKEDEX")
 
   const getPokemons = () => {
     axios
@@ -21,7 +23,7 @@ const App = () => {
       })
   }
 
-  const data = { pokemon, setPokemon, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails }
+  const data = {buttonPokedex, setButtonPokedex, pokemon, setPokemon, pokeList, setPokeList, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails }
 
   
   return (

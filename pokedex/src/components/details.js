@@ -93,13 +93,6 @@ function Details () {
                 })}
             </div>
             </DetailsContainer>
-                <DivButton>
-                <button onClick={() => goToPokedex(history)}>Ir para Pokedéx</button>
-                </DivButton>
-                <H1Home>Lista de Pokémons</H1Home>
-                <DivButton>
-                <button onClick={() => goToPokedex(history)}>Ir para Home</button>
-                </DivButton>
             
 
         </div>

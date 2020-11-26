@@ -1,12 +1,16 @@
-import React from "react"
+import React, {useContext} from "react"
 import styled from 'styled-components'
 import axios from 'axios'
 import { DivButton, GridPokemon, H1Home, Header, PokemonBox } from "../styled/styles"
 import { useHistory } from "react-router-dom"
 import {goBack} from '../router/coordinations'
 import pikachu from '../components/img/pikachu.png'
+import GlobalStateContext from '../globalstate/globalstatecontext'
+import PokeCard from "./pokemoncard"
 
 function Pokedex () {
+
+    const {buttonPokedex, setButtonPokedex, pokemon, setPokemon, pokeList, setPokeList, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
 
     const history = useHistory()
 
@@ -24,28 +28,9 @@ function Pokedex () {
             <GridPokemon>
 
                 <PokemonBox>
-                    <img src={pikachu} />
-                    <button>Remover Pokémon</button>
-                    <button>Ver detalhes</button>
-                </PokemonBox>
-
-                <PokemonBox>
-                <img src={pikachu} />
-                    <button>Remover Pokémon</button>
-                    <button>Ver detalhes</button>
-                </PokemonBox>
-
-                <PokemonBox>
-                <img src={pikachu} />
-                    <button>Remover Pokémon</button>
-                    <button>Ver detalhes</button>
-                </PokemonBox>
-
-                <PokemonBox>
-                <img src={pikachu} />
-                    <button>Remover Pokémon</button>
-                    <button>Ver detalhes</button>
-
+                {pokedex.map((poke) => {
+              return <PokeCard name={poke.name} url={poke.url} />
+            })}
                 </PokemonBox>
                 
             </GridPokemon>

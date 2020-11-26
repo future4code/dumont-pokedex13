@@ -2,7 +2,7 @@ import React from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import Details from "../components/details"
 import Home from "../components/home"
-import Pokedex from "../components/Pokedex"
+import Pokedex from "../components/pokedex"
 
 function Router () {
     return (
@@ -13,7 +13,7 @@ function Router () {
 
             </Route>
 
-            <Route exact path="/Pokedex">
+            <Route exact path="/pokedex">
                 <Pokedex />
             </Route>
 
