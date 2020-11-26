@@ -1,13 +1,15 @@
 import Router from './router/router';
+import GlobalState from './Global/GlobalState'
 
-function App() {
+ const App=()=> {
   return (
-    <div>
 
+      <GlobalState>
       <Router />
-      
-    </div>
+    </GlobalState>
   );
-}
+};
+
 
 export default App;
+
