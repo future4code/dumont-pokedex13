@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from 'styled-components'
 import axios from 'axios'
 import { DivButton, GridPokemon, H1Home, Header, PokemonBox } from "../styled/styles"
@@ -6,32 +6,17 @@ import { useHistory } from "react-router-dom"
 import { goToPokedex, goToDetails } from '../router/coordinations'
 import pikachu from "../components/img/pikachu.png"
 import { useRequestData } from "../hooks/useRequestData"
+import PokeCard from "./pokemoncard"
+import GlobalStateContext from "../globalstate/globalstatecontext"
 
 function Home(props) {
 
     const history = useHistory()
 
-    const [pokedexList, setPokedexList] = useState([])
-
-    const pokeImage = useRequestData ("https://pokeapi.co/api/v2/pokemon/?limit=20", undefined)
-
-    const getPokeList = () => {
-        axios
-            .get("https://pokeapi.co/api/v2/pokemon/?limit=20")
-
-            .then((res) => {
-
-                setPokedexList(res.data.results)
-                console.log(res.data)
-
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }
+    const {pokeImage, setPokeImage, getPokeImage, pokemon, setPokemon, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails} = useContext(GlobalStateContext);
 
     useEffect(() => {
-        getPokeList()
+       getPokemons()
     }, [])
 
     return (
@@ -41,21 +26,12 @@ function Home(props) {
                     <button onClick={() => goToPokedex(history)}>Ir para Pokedéx</button>
                 </DivButton>
                 <H1Home>Lista de Pokémons</H1Home>
-            </Header> 
-
-
-                
+            </Header>              
             
                         <GridPokemon>
-                        {pokedexList.map((pokemons) => (
-                        <PokemonBox key={pokemons.id}>
-                         <p> {pokemons.name}</p>
-                         <img src={pokeImage}/>
-                         <button>Adicionar a Pokedéx</button>
-                         <button onClick={() => goToDetails(history)}>Ver detalhes</button>
-                         </PokemonBox>
-        
-      ))}
+                        {pokemon.map((poke)=>{
+                            return <PokeCard name={poke.name} url={poke.url} />
+                        })}
                         </GridPokemon>
                         
     

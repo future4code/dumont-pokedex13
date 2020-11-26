@@ -17,7 +17,7 @@ function Router () {
                 <Pokedex />
             </Route>
 
-            <Route exact path="/pokemon-details">
+            <Route exact path="/pokemon-details/:name">
                 <Details />
             </Route>
 
