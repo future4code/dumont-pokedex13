@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import {useHistory} from 'react-router-dom'
-import {PokemonBox} from '../styled/styles'
+import {PokemonBox, ButtonPokedex, ButtonDetails} from '../styled/styles'
 import axios from 'axios'
 import GlobalStateContext from '../globalstate/globalstatecontext'
 
@@ -8,6 +8,8 @@ function PokeCard(props) {
 
     const {buttonPokedex, setButtonPokedex, pokemon, setPokemon, pokeList, setPokeList, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
     const history = useHistory()
+
+    
 
     const [pokeImage, setPokeImage] = useState([])
 
@@ -42,7 +44,7 @@ function PokeCard(props) {
         setPokemon(ListPokemon)
       }
 
-    
+     
 
     const goToDetails = (name) =>{
         history.push (`/pokemon-details/${name}`);
@@ -54,8 +56,10 @@ function PokeCard(props) {
             
             <img src={pokeImage} />
             <p>{props.name}</p>
-            <button onClick={() => addPokedex(props.name, props.url)}>{buttonPokedex}</button>
-            <button onClick={() => goToDetails(props.name)}>Ver detalhes</button>
+            <ButtonPokedex onClick={() => addPokedex(props.name, props.url)}>{buttonPokedex}</ButtonPokedex>
+            <ButtonDetails onClick={() => goToDetails(props.name)}>VER DETALHES</ButtonDetails>
+           
+            
         </PokemonBox>
     )
 }

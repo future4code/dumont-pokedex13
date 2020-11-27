@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 import axios from 'axios'
-import { DivButton, GridPokemon, H1Home, Header, PokemonBox, HeaderDetails, DetailButtons, DetailsContainer, DetailsPictures, StyledPic } from "../styled/styles"
+import { DivButton, GridPokemon, H1Home, Header, PokemonBox, 
+    HeaderDetails, DetailButtons, DetailsContainer, DetailsPictures, 
+    StyledPic, ImageBox, PokemonInfoConteiner, ImagePokemon, PokemonType, PokemonInfoBox } from "../styled/styles"
 import { useHistory, useParams } from "react-router-dom"
 import {goToPokedex, goBack} from '../router/coordinations'
 import pikachu from '../components/img/pikachu.png'
@@ -15,6 +17,7 @@ function Details () {
     const [pokeBack, setPokeBack] = useState([])
     const [pokeStats, setPokeStats] = useState([])
     const [pokeAttack, setPokeAttack] = useState([])
+    const [pokeType, setPokeType] = useState([])
 
     let hp = {}
     let attack = {}
@@ -22,6 +25,7 @@ function Details () {
     let specialAttack = {}
     let specialDefense = {}
     let speed = {}
+    let type = {}
 
     const getDetails = () =>{
         axios
@@ -32,6 +36,7 @@ function Details () {
         setPokeBack(res.data.sprites.back_default)
         setPokeStats(res.data.stats)
         setPokeAttack(res.data.moves)
+        setPokeType(res.data.type)
         })
 
         .catch((err)=>{
@@ -50,6 +55,7 @@ function Details () {
         specialAttack = pokeStats[3]
         specialDefense = pokeStats[4]
         speed = pokeStats[5]
+        type = pokeStats[0]
 
     }
 
@@ -65,34 +71,41 @@ function Details () {
         <div>
             <HeaderDetails>
 
-                <DetailButtons onClick={() => goToPokedex(history)}>Ir para Pokedéx</DetailButtons>
-
+                <DetailButtons onClick={() => goToPokedex(history)}>POKÉDEX</DetailButtons>
 
                 <h1>{pokeName}</h1>
 
-                <DetailButtons onClick={() => goBack(history)}>Voltar para Home</DetailButtons>
+                <DetailButtons onClick={() => goBack(history)}>HOME</DetailButtons>
             </HeaderDetails>
 
-            <DetailsContainer>
-            <div>
-                <DetailsPictures>
-                <StyledPic src={pokeFront} />
-                <img src={pokeBack} />
-                </DetailsPictures>
-                <h2>Poderes</h2>
-                <p>HP: {hp.base_stat}</p>
-                <p>Ataque: {attack.base_stat}</p>
-                <p>Ataque Especial: {specialAttack.base_stat}</p>
-                <p>Defesa Especial: {specialDefense.base_stat}</p>
-                <p>Velocidade: {speed.base_stat}</p>
 
-                <h2>Principais Ataques</h2>
+            <ImageBox>
+                <ImagePokemon src={pokeFront} />
+                
+                <ImagePokemon src={pokeBack} />
+            </ImageBox>
 
-                {attackList.map((move)=>{
-                    return <p>{move.move.name}</p>
-                })}
-            </div>
-            </DetailsContainer>
+            <PokemonInfoConteiner>
+                <PokemonInfoBox>
+                    <h2>Poderes</h2>
+                    <p>HP: {hp.base_stat}</p>
+                    <p>Ataque: {attack.base_stat}</p>
+                    <p>Ataque Especial: {specialAttack.base_stat}</p>
+                    <p>Defesa Especial: {specialDefense.base_stat}</p>
+                    <p>Velocidade: {speed.base_stat}</p>
+                </PokemonInfoBox>
+                
+                <PokemonInfoBox>
+                    <h2>Principais Ataques</h2>
+
+                    {attackList.map((move)=>{
+                        return <p>{move.move.name}</p>
+                    })}
+                </PokemonInfoBox>
+            </PokemonInfoConteiner>
+
+            
+           
             
 
         </div>

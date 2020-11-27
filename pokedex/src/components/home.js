@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import styled from 'styled-components'
 import axios from 'axios'
-import { DivButton, GridPokemon, H1Home, Header, PokemonBox } from "../styled/styles"
+import { DivButton, GridPokemon, H1Home, Header, PokemonBox, ToPokedex } from "../styled/styles"
 import { useHistory } from "react-router-dom"
 import { goToPokedex, goToDetails } from '../router/coordinations'
 import { useRequestData } from "../hooks/useRequestData"
@@ -44,7 +44,7 @@ function Home() {
         <div>
             <Header>
                 <DivButton>
-                    <button onClick={() => goToPokedex(history)}>Ir para Pokedéx</button>
+                    <ToPokedex onClick={() => goToPokedex(history)}>POKÉDEX</ToPokedex>
                 </DivButton>
                 <H1Home>Lista de Pokémons</H1Home>
             </Header>              
