@@ -1,16 +1,30 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+**Nome dos integrantes: **
 
-Link do Surge: www.link.com.br
+Fabio Jordão;
 
-O que funciona:
-- Item 1
-- Item 2
+Rafaela Quinzel;
 
-O que não funciona: 
-- Item 3
-- Item 4
+Renata Caetano;
+
+**Link do Surge: **
+
+broad-alarm.surge.sh
+
+**O que funciona:**
+
+Mudança entre páginas;
+
+Aparecer os 20 pokemons;
+
+Add Pokemons;
+
+Detalhes do Pokemon;
+
+**O que não funciona: **
+
+Add apenas 1x o pokemon;
+Excluir Pokemon;
+
+
